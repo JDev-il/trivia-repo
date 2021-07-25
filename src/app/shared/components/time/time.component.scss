@@ -1,0 +1,11 @@
+.timeDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span, i{
+        padding: 0 5px;
+        font-size: small;
+        display: flex;
+        color: rgb(32, 92, 100);
+    }
+}

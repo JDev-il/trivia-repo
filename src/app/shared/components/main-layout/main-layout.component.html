@@ -1,0 +1,28 @@
+
+
+<div class="wrapper">
+  <section class="header">
+    <zoomInfoHeader></zoomInfoHeader>
+  </section>
+  <section class="main-wrapper" *ngIf="dataToQuestions[sharedService.currentIndex] !== sharedService.lastQuestion else finished">
+    <div class="infoHeader">
+      <div class="questionsDivMain">
+        <questions [questions]="dataToQuestions"></questions>
+      </div>
+      <div class="timerDivMain">
+        <timeinterval></timeinterval>
+      </div>
+    </div>
+    <div class="carouselMain">
+      <carousel [answers]="dataToCarousel"></carousel>
+    </div>
+  </section>
+</div>
+
+
+<ng-template #finished>
+  <div class="finishedTrivia">
+    <h1>Thanks for your time!</h1>
+    <p>Created by Jonathan Daniel</p>
+  </div>
+</ng-template>

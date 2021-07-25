@@ -1,0 +1,34 @@
+
+  <p-carousel
+    [value]="answers"
+    [numVisible]="1"
+    [numScroll]="1"
+    [circular]="false"
+    [page]="sharedService.currentIndex"
+    [showNavigators]="false"
+  >
+    <ng-template let-answer pTemplate="item">
+      <div class="answer-item">
+        <div
+          class="answer-item-content"
+          [ngClass]="!disableNext ? 'blockClick' : ''"
+        >
+          <p-button
+            (click)="answerClicked(a)"
+            [disabled]="!disableNext"
+            *ngFor="let a of answer"
+            >{{ a }}</p-button
+          >
+        </div>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <div class="nextQuestionBtn" [ngClass]="disableNext ? 'blockClick' : ''">
+        <p-button (click)="nextQuestion()" [disabled]="disableNext"
+          >OK</p-button
+        >
+      </div>
+    </ng-template>
+  </p-carousel>
+
+

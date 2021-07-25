@@ -1,0 +1,14 @@
+<p-carousel
+  class="questionsDiv"
+  [value]="questions"
+  [showIndicators]="false"
+  [showNavigators]="false"
+  [page]="sharedService.currentIndex"
+>
+  <ng-template let-question pTemplate="item">
+    <div class="questionsDiv">
+      <span>Q{{ sharedService.currentIndex + 1 }}: </span>
+      <span> {{ question }}</span>
+    </div>
+  </ng-template>
+</p-carousel>

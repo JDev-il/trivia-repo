@@ -1,0 +1,141 @@
+::ng-deep .p-carousel {
+  height: 100%;
+  width: 100%;
+  .p-carousel-content {
+    .p-carousel-indicators {
+      pointer-events: none;
+      .p-carousel-indicator button {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        &:focus {
+          box-shadow: none;
+        }
+      }
+      .p-carousel-indicator.p-highlight button {
+        background-color: rgb(32, 92, 100);
+      }
+      li {
+        margin: 15px;
+      }
+    }
+  }
+  .p-carousel-container {
+    .p-carousel-items-content {
+      .p-carousel-items-container {
+        .p-carousel-item {
+          height: 100%;
+          .answer-item-content {
+            display: flex;
+            flex-flow: wrap;
+            justify-content: center;
+            max-width: 45%;
+            margin: 0 auto;
+            ::ng-deep .p-button {
+              border-radius: 0.6em;
+              width: 250px;
+              height: 50px;
+              margin: 10px 5px;
+              display: flex;
+              justify-content: center;
+              padding: 15px;
+              background-color: #d8d8d82f;
+              font-size: small;
+              color: rgb(32, 92, 100);
+              border-color: rgba(32, 92, 100, 0.37);
+              &:hover {
+                color: rgb(54, 162, 177);
+                border-color: rgba(56, 175, 190, 0.37);
+              }
+              &:focus {
+                box-shadow: none;
+              }
+            }
+          }
+          @media (max-width: 1600px) {
+            .answer-item-content {
+              max-width: 55%;
+              ::ng-deep .p-button {
+                width: 250px;
+              }
+            }
+          }
+          @media (max-width: 1444px) {
+            .answer-item-content {
+              max-width: 60%;
+              ::ng-deep .p-button {
+                width: 235px;
+              }
+            }
+          }
+          @media (max-width: 1280px) {
+            .answer-item-content {
+              max-width: 65%;
+              ::ng-deep .p-button {
+                width: 200px;
+              }
+            }
+          }
+          @media (max-width: 992px) {
+            .answer-item-content {
+              max-width: 70%;
+              ::ng-deep .p-button {
+                width: 185px;
+              }
+            }
+          }
+          @media (max-width: 768px) {
+            .answer-item-content {
+              max-width: 85%;
+              ::ng-deep .p-button {
+                width: 190px;
+              }
+            }
+          }
+          @media (max-width: 500px) {
+            .answer-item-content {
+              max-width: 95%;
+              ::ng-deep .p-button {
+                width: 140px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.nextQuestionBtn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  ::ng-deep .p-button {
+    border-radius: 1em;
+    border-color: rgba(32, 92, 100, 0.37);
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    background: rgb(32, 92, 100);
+    padding: 6px;
+  }
+}
+
+::ng-deep .p-button {
+  &:focus {
+   box-shadow: none !important;
+  }
+  &[disabled] {
+    color: rgb(32, 92, 100) !important;
+    background-color: rgba(32, 92, 100, 0.158) !important;
+  }
+}
+::ng-deep .p-button-label {
+  display: none;
+}
+
+.blockClick {
+  pointer-events: none !important
+}
+

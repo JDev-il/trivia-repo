@@ -1,0 +1,12 @@
+.questionsDiv {
+    width: 100%;    
+    ::ng-deep .p-carousel {
+        display: flex;
+        font-weight: 300; 
+        span:nth-child(1) {
+            font-weight: 500; 
+            color: rgb(32, 92, 100);
+        }
+    }
+
+}

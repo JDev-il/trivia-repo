@@ -1,0 +1,66 @@
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+
+  .header {
+    height: 25%;
+    width: 100%;
+  }
+
+  .main-wrapper {
+    height: 75%;
+    width: 100%;
+    padding: 6vh 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    .infoHeader {
+      display: flex;
+      max-width: 75%;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      .questionsDivMain {
+        max-width: 65%;
+      }
+      .timeDivMain {
+        width: 100%;
+      }
+    }
+    .carouselMain {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      padding: 15px 0;
+      width: 65vw;
+    }
+  }
+}
+
+.finishedTrivia {
+  height: 75%;
+  width: 100%;
+  padding: 5vh 0;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  
+  p, span {
+    margin: 5px 0;
+  }
+  span {
+    font-size: small;
+  }
+}
+
