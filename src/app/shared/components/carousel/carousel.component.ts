@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { QAModel } from '../../models/qa.model';
 import { SharedService } from '../../services/shared.service';
 import { Subscription } from 'rxjs';
@@ -15,18 +15,17 @@ export class CarouselComponent implements OnInit {
   questionsReady?: boolean;
   carouselSubscribe: Subscription;
 
+  @Output() stopWatch = new EventEmitter();
   @Input() answers?: QAModel[] = [];
   @Input() questions?: QAModel[] = [];
 
   next = setInterval(() => {
-    if (this.sharedService.currentIndex <= 9){      
-      this.sharedService.userStrikes = 3;
-      this.sharedService.counterInterval = 20;
-      ++this.sharedService.currentIndex;
+    if (this.sharedService.currentIndex === 9){      
       this.disableNext = true;
-    } else {
-      clearInterval(this.next)
     }
+    this.sharedService.currentIndex++;
+    this.sharedService.userStrikes = 3;
+    this.sharedService.counterInterval = 20;
   }, 20000);
 
 
@@ -39,14 +38,12 @@ export class CarouselComponent implements OnInit {
     this.next;
   }
 
-
-  setCarouselIndex() {    
-  }
-
-  nextQuestion() {
+  nextQuestion() { // onClick event
     if (this.sharedService.currentIndex === 9) {
       this.disableNext = true;
+      clearInterval(this.next)
     }
+    this.sharedService.stopContinueTimer = false;
     this.disableNext = true
     this.sharedService.userStrikes = 3;
     this.sharedService.counterInterval = 20       
@@ -63,20 +60,19 @@ export class CarouselComponent implements OnInit {
     if (isAnswered && isNotlast) {
       this.alerts.answered(true, false)
       this.disableNext = false;
-      clearTimeout(this.next)
-      return;
-      // Correct & isNotLast; 
+      this.sharedService.stopContinueTimer = true;
+      //^ Correct & Not Last; 
     } 
     
     else if (!isAnswered && isNotlast) {
       this.alerts.answered(false, false);
-      // NOT Correct & isNotLast;  
+      //! NOT Correct & Not Last;  
     }
     
     else if (isAnswered && isLast) {
       this.alerts.answered(true, true)
       this.disableNext = false;
-      // Correct & isLast
+      //^ Correct & Last
     } 
     
     else if (!isAnswered && isLast) {
@@ -84,13 +80,12 @@ export class CarouselComponent implements OnInit {
       setTimeout(() => {
         this.sharedService.userStrikes = 3
         this.sharedService.counterInterval = 20;    
-        return this.sharedService.currentIndex++;
-      }, 2500);
-
-      // NOT Correct & isLast;
-    
+        this.sharedService.currentIndex++;
+        return 
+      }, 1800);
+      //! NOT Correct & Last;
     } 
-    --this.sharedService.userStrikes
+    this.sharedService.userStrikes--
   }
 
 }

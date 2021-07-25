@@ -35,5 +35,4 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
     this.dataSubscribe.unsubscribe()
   }
 
-
 }
