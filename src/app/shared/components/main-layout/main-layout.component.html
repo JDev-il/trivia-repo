@@ -4,19 +4,22 @@
   <section class="header">
     <zoomInfoHeader></zoomInfoHeader>
   </section>
-  <section class="main-wrapper" *ngIf="dataToQuestions[sharedService.currentIndex] !== sharedService.lastQuestion else finished">
-    <div class="infoHeader">
-      <div class="questionsDivMain">
-        <questions [questions]="dataToQuestions"></questions>
+  <div *ngIf="dataToQuestions.length else standby">
+    <section class="main-wrapper" *ngIf="dataToQuestions[dataToQuestions.length-1] !== dataToQuestions[sharedService.currentIndex-1] else finished">
+      <div class="infoHeader">
+        <div class="questionsDivMain">
+          <questions [questions]="dataToQuestions"></questions>
+        </div>
+        <div class="timerDivMain">
+          <timeinterval></timeinterval>
+        </div>
       </div>
-      <div class="timerDivMain">
-        <timeinterval></timeinterval>
+      <div class="carouselMain">
+        <carousel [questions]="dataToQuestions" [answers]="dataToCarousel"></carousel>
       </div>
-    </div>
-    <div class="carouselMain">
-      <carousel [answers]="dataToCarousel"></carousel>
-    </div>
-  </section>
+    </section>
+  </div>
+
 </div>
 
 
@@ -26,3 +29,8 @@
     <p>Created by Jonathan Daniel</p>
   </div>
 </ng-template>
+
+<ng-template #standby>
+  <p-progressSpinner></p-progressSpinner>
+</ng-template>
+

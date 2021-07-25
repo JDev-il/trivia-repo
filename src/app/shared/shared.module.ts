@@ -6,6 +6,7 @@ import { SharedRoutingModule } from '../shared/shared-routing.module';
 /*============  PrimeNg  =============*/
 import { ButtonModule } from 'primeng/button';
 import { CarouselModule } from 'primeng/carousel';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 
 /*============  Components  =============*/
@@ -30,7 +31,8 @@ import { HeaderComponent } from './components/header/header.component';
     CommonModule,
     ButtonModule,
     CarouselModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+    ProgressSpinnerModule
   ]
 })
 export class SharedModule { }

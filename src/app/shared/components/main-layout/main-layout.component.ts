@@ -16,7 +16,7 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
   @Input() dataToCarousel?= [];
   @Input() dataToQuestions?= [];
 
-  ngOnInit() {
+  ngOnInit() {    
     this.sharedService.importData().then(() => {
       this.dataSubscribe = this.sharedService.data$.subscribe((data: QAModel[]) => {
         if (data.length) {
@@ -27,7 +27,7 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
           })          
         }        
       })
-    })
+    })    
   }
 
 

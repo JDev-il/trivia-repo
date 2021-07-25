@@ -7,7 +7,6 @@
   height: 100%;
   display: flex;
   flex-flow: column;
-  justify-content: center;
   align-items: center;
 
   .header {
@@ -45,6 +44,34 @@
       width: 65vw;
     }
   }
+
+  ::ng-deep .p-progress-spinner {
+    position: absolute !important;
+    background-color: rgba(0, 0, 0, 0.233) !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    .p-progress-spinner-svg {
+      height: 10%;
+    }
+  }
+@keyframes p-progress-spinner-color {
+  100%,
+  0% {
+    stroke: #d62d20;
+  }
+  40% {
+    stroke: #0057e7;
+  }
+  66% {
+    stroke: #008744;
+  }
+  80%,
+  90% {
+    stroke: #ffa700;
+  }
+}
 }
 
 .finishedTrivia {
@@ -55,12 +82,14 @@
   flex-flow: column;
   justify-content: flex-start;
   align-items: center;
-  
-  p, span {
+
+  p,
+  span {
     margin: 5px 0;
   }
   span {
     font-size: small;
   }
 }
+
 
