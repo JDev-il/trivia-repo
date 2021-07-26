@@ -29,7 +29,8 @@ export class SharedService {
   //In timeComponent
   counterInterval: number = 20;
   userStrikes: number = 3;
-  stopContinueTimer: boolean = false;
+  goToNextQuestion: boolean = false;
+
 
   constructor(public httpApi: HttpClient) { }
 

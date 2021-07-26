@@ -22,10 +22,10 @@ export class CarouselComponent implements OnInit {
   next = setInterval(() => {
     if (this.sharedService.currentIndex === 9){      
       this.disableNext = true;
-    }
-    this.sharedService.currentIndex++;
-    this.sharedService.userStrikes = 3;
-    this.sharedService.counterInterval = 20;
+    } 
+      this.sharedService.currentIndex++;
+      this.sharedService.userStrikes = 3;
+      this.sharedService.counterInterval = 20;    
   }, 20000);
 
 
@@ -43,8 +43,7 @@ export class CarouselComponent implements OnInit {
       this.disableNext = true;
       clearInterval(this.next)
     }
-    this.sharedService.stopContinueTimer = false;
-    this.disableNext = true
+    this.disableNext = true;
     this.sharedService.userStrikes = 3;
     this.sharedService.counterInterval = 20       
     this.sharedService.currentIndex++;
@@ -60,7 +59,6 @@ export class CarouselComponent implements OnInit {
     if (isAnswered && isNotlast) {
       this.alerts.answered(true, false)
       this.disableNext = false;
-      this.sharedService.stopContinueTimer = true;
       //^ Correct & Not Last; 
     } 
     

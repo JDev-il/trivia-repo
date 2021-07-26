@@ -12,10 +12,9 @@ export class TimeComponent implements OnInit {
 
   countDown() {    
     const timer = setInterval(()=> {
-      --this.sharedService.counterInterval;
+      --this.sharedService.counterInterval;    
       if (this.sharedService.counterInterval === 0){
         clearInterval(timer)
-        this.sharedService.counterInterval = 20;
         this.countAgain();
       } 
       else if (this.sharedService.getData[this.sharedService.currentIndex].question === this.sharedService.lastQuestion){
