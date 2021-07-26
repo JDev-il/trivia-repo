@@ -1,5 +1,5 @@
 import {Component, OnInit } from '@angular/core';
-import { SharedService } from '../../services/shared.service';
+import { SharedService } from '../../../services/shared.service';
 
 @Component({
   selector: 'timeinterval',
@@ -13,12 +13,13 @@ export class TimeComponent implements OnInit {
   countDown() {    
     const timer = setInterval(()=> {
       --this.sharedService.counterInterval;    
-      if (this.sharedService.counterInterval === 0){
+      if (this.sharedService.counterInterval === 1){
         clearInterval(timer)
+        this.sharedService.counterInterval = 20;
         this.countAgain();
       } 
       else if (this.sharedService.getData[this.sharedService.currentIndex].question === this.sharedService.lastQuestion){
-        clearInterval(timer)
+        return clearInterval(timer)
       }
     }, 1000);
   }

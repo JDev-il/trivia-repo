@@ -13,7 +13,7 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import { QuestionsComponent } from './components/carousel/questions/questions.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
-import { TimeComponent } from './components/time/time.component';
+import { TimeComponent } from './components/carousel/time/time.component';
 import { AlertsComponent } from './alerts/alerts.component';
 import { HeaderComponent } from './components/header/header.component';
 

@@ -19,14 +19,6 @@ export class CarouselComponent implements OnInit {
   @Input() answers?: QAModel[] = [];
   @Input() questions?: QAModel[] = [];
 
-  next = setInterval(() => {
-    if (this.sharedService.currentIndex === 9){      
-      this.disableNext = true;
-    } 
-      this.sharedService.currentIndex++;
-      this.sharedService.userStrikes = 3;
-      this.sharedService.counterInterval = 20;    
-  }, 20000);
 
 
   disableNext: boolean = true;
@@ -35,17 +27,25 @@ export class CarouselComponent implements OnInit {
   constructor(public sharedService: SharedService, public alerts: AlertsComponent) { }
 
   ngOnInit() {
-    this.next;
+    const next = setInterval(() => {
+      if (this.sharedService.currentIndex === 10){      
+        this.disableNext = true;
+      } else {
+        this.sharedService.currentIndex++;
+      }
+        this.sharedService.userStrikes = 3;
+        this.sharedService.counterInterval = 20;    
+    }, 20000);
+  
   }
 
   nextQuestion() { // onClick event
     if (this.sharedService.currentIndex === 9) {
       this.disableNext = true;
-      clearInterval(this.next)
     }
     this.disableNext = true;
     this.sharedService.userStrikes = 3;
-    this.sharedService.counterInterval = 20       
+    this.sharedService.counterInterval = 20    
     this.sharedService.currentIndex++;
   }
 
@@ -59,6 +59,7 @@ export class CarouselComponent implements OnInit {
     if (isAnswered && isNotlast) {
       this.alerts.answered(true, false)
       this.disableNext = false;
+      return;
       //^ Correct & Not Last; 
     } 
     
